@@ -42,7 +42,7 @@ class CyclingFragment: Fragment() {
         binding.textViewLongestRideValue.text = cyclingPreferences.getString("Longest Ride ${EditRecordActivity.SHARED_PREFERENCE_RECORD_KEY}", null)
         binding.textViewLongestRideDate.text = cyclingPreferences.getString("Longest Ride ${EditRecordActivity.SHARED_PREFERENCE_DATE_KEY}", null)
 
-        binding.textViewBestSpeedValue.text = cyclingPreferences.getString("Best Speed  ${EditRecordActivity.SHARED_PREFERENCE_RECORD_KEY}", null)
+        binding.textViewBestSpeedValue.text = cyclingPreferences.getString("Best Speed ${EditRecordActivity.SHARED_PREFERENCE_RECORD_KEY}", null)
         binding.textViewBestSpeedDate.text = cyclingPreferences.getString("Best Speed ${EditRecordActivity.SHARED_PREFERENCE_DATE_KEY}", null)
 
         binding.textViewBiggestClimbValue.text = cyclingPreferences.getString("Biggest Climb ${EditRecordActivity.SHARED_PREFERENCE_RECORD_KEY}", null)

@@ -49,7 +49,7 @@ class RunningFragment : Fragment() {
         binding.textViewHalfMarathonDate.text = runningPreferences.getString("Half Marathon ${EditRecordActivity.SHARED_PREFERENCE_DATE_KEY}", null)
 
         binding.textViewMarathonValue.text = runningPreferences.getString("Marathon ${EditRecordActivity.SHARED_PREFERENCE_RECORD_KEY}", null)
-        binding.textViewMarathonDate.text = runningPreferences.getString("Marathon${EditRecordActivity.SHARED_PREFERENCE_DATE_KEY}", null)
+        binding.textViewMarathonDate.text = runningPreferences.getString("Marathon ${EditRecordActivity.SHARED_PREFERENCE_DATE_KEY}", null)
     }
 
     // Set listeners for each record container
