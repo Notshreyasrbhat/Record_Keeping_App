@@ -1,6 +1,5 @@
 package com.project.recordkeeper
 
-
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -14,6 +13,7 @@ import com.project.recordkeeper.cycling.CyclingFragment
 import com.project.recordkeeper.databinding.ActivityMainBinding
 import com.project.recordkeeper.running.RunningFragment
 
+// Main activity controlling navigation and record management
 class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListener {
 
     private lateinit var binding: ActivityMainBinding
@@ -23,8 +23,7 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.bottomNav.setOnItemSelectedListener(this)
-
+        binding.bottomNav.setOnItemSelectedListener(this) // listen for bottom nav changes
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -33,55 +32,55 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle toolbar actions for resetting records
         val menuCLickedHandled = when (item.itemId) {
             R.id.reset_running -> {
                 showConfirmationDialog(RUNNING_DISPLAY_VALUE)
                 true
             }
-
             R.id.reset_cycling -> {
                 showConfirmationDialog(CYCLING_DISPLAY_VALUE)
                 true
             }
-
             R.id.reset_all_records -> {
                 showConfirmationDialog(ALL_DISPLAY_VALUE)
                 true
             }
-
             else -> super.onOptionsItemSelected(item)
         }
-
         return menuCLickedHandled
     }
 
+    // Show dialog before clearing records
     private fun showConfirmationDialog(selection: String) {
         AlertDialog.Builder(this)
             .setTitle("Reset $selection records")
-            .setMessage("are you sure want to clear the records ?")
-            .setPositiveButton("yes") { _, _ ->
+            .setMessage("Are you sure you want to clear the records?")
+            .setPositiveButton("Yes") { _, _ ->
+                // Clear data based on user choice
                 when (selection) {
                     ALL_DISPLAY_VALUE -> {
                         getSharedPreferences(RunningFragment.FILENAME, MODE_PRIVATE).edit { clear() }
                         getSharedPreferences(CyclingFragment.FILENAME, MODE_PRIVATE).edit { clear() }
                     }
-                    RUNNING_DISPLAY_VALUE->getSharedPreferences(RunningFragment.FILENAME, MODE_PRIVATE).edit { clear() }
-                    CYCLING_DISPLAY_VALUE->getSharedPreferences(CyclingFragment.FILENAME, MODE_PRIVATE).edit { clear() }
+                    RUNNING_DISPLAY_VALUE -> getSharedPreferences(RunningFragment.FILENAME, MODE_PRIVATE).edit { clear() }
+                    CYCLING_DISPLAY_VALUE -> getSharedPreferences(CyclingFragment.FILENAME, MODE_PRIVATE).edit { clear() }
                 }
-                refreshCurrentFragment()
-                showConfirmation()
+                refreshCurrentFragment() // reload UI to reflect cleared data
+                showConfirmation()       // notify user
             }
             .setNegativeButton("No", null)
             .show()
     }
 
+    // Show snackbar after clearing records
     private fun showConfirmation() {
         val snackbar = Snackbar.make(binding.root, "Records cleared successfully", Snackbar.LENGTH_SHORT)
         snackbar.anchorView = binding.bottomNav
         snackbar.show()
     }
 
-
+    // Reloads whichever fragment is currently visible
     private fun refreshCurrentFragment() {
         when (binding.bottomNav.selectedItemId) {
             R.id.nav_running -> onRunningClicked()
@@ -90,13 +89,11 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
         }
     }
 
-
     private fun onRunningClicked(): Boolean {
         supportFragmentManager.commit {
             replace(R.id.frame_content, RunningFragment())
         }
         return true
-
     }
 
     private fun onCyclingClicked(): Boolean {
@@ -106,16 +103,16 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
         return true
     }
 
+    // Handle bottom navigation item selection
     override fun onNavigationItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.nav_cycling -> onCyclingClicked()
         R.id.nav_running -> onRunningClicked()
         else -> false
     }
+
     companion object {
-        const val RUNNING_DISPLAY_VALUE ="running"
-        const val CYCLING_DISPLAY_VALUE ="cycling"
-        const val ALL_DISPLAY_VALUE ="all"
+        const val RUNNING_DISPLAY_VALUE = "running"
+        const val CYCLING_DISPLAY_VALUE = "cycling"
+        const val ALL_DISPLAY_VALUE = "all"
     }
 }
-
-

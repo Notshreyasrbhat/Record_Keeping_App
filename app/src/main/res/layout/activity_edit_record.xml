@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:padding="24dp">
 
+    <!-- Input field for record value (time, distance, etc.) -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/text_input_record"
         style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
@@ -20,9 +21,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="24:11" />
-
     </com.google.android.material.textfield.TextInputLayout>
 
+    <!-- Input field for date of the record -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/text_input_date"
         style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
@@ -37,9 +38,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="11 Aug 2025" />
-
     </com.google.android.material.textfield.TextInputLayout>
 
+    <!-- Save button -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_save"
         android:layout_width="match_parent"
@@ -48,6 +49,7 @@
         android:text="@string/save"
         app:layout_constraintTop_toBottomOf="@id/text_input_date" />
 
+    <!-- Delete/Clear record button -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_delete"
         style="@style/Widget.Material3.Button.OutlinedButton"

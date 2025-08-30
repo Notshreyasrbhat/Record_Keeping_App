@@ -5,10 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- Root container for cycling stats screen -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <!-- Header section with background image, gradient, and title -->
         <FrameLayout
             android:id="@+id/frame_heading"
             android:layout_width="0dp"
@@ -25,11 +27,13 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/bike_heading" />
 
+            <!-- Dark overlay for text readability -->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/gradient_overlay" />
 
+            <!-- Header title -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -43,6 +47,7 @@
 
         </FrameLayout>
 
+        <!-- Stats list section -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -52,6 +57,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/frame_heading">
 
+            <!-- Longest Ride stat -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/container_longest_ride"
                 android:layout_width="match_parent"
@@ -68,6 +74,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <!-- Ride value -->
                 <TextView
                     android:id="@+id/text_view_longest_ride_value"
                     android:layout_width="wrap_content"
@@ -79,6 +86,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="22:04" />
 
+                <!-- Ride date -->
                 <TextView
                     android:id="@+id/text_view_longest_ride_date"
                     android:layout_width="wrap_content"
@@ -90,15 +98,16 @@
                     app:layout_constraintTop_toBottomOf="@id/text_view_longest_ride_value"
                     tools:text="7/8/2025" />
 
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <!-- Divider -->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="16dp"
                 android:background="@color/light_grey" />
 
+            <!-- Biggest Climb stat -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/container_biggest_climb"
                 android:layout_width="match_parent"
@@ -116,6 +125,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <!-- Climb value -->
                 <TextView
                     android:id="@+id/text_view_biggest_climb_value"
                     android:layout_width="wrap_content"
@@ -127,6 +137,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="22:04" />
 
+                <!-- Climb date -->
                 <TextView
                     android:id="@+id/text_view_biggest_climb_date"
                     android:layout_width="wrap_content"
@@ -138,15 +149,16 @@
                     app:layout_constraintTop_toBottomOf="@id/text_view_biggest_climb_value"
                     tools:text="7/8/2025" />
 
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <!-- Divider -->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="16dp"
                 android:background="@color/light_grey" />
 
+            <!-- Best Speed stat -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/container_best_speed"
                 android:layout_width="match_parent"
@@ -164,6 +176,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <!-- Speed value -->
                 <TextView
                     android:id="@+id/text_view_best_speed_value"
                     android:layout_width="wrap_content"
@@ -175,6 +188,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="22:04" />
 
+                <!-- Speed date -->
                 <TextView
                     android:id="@+id/text_view_best_speed_date"
                     android:layout_width="wrap_content"
@@ -185,7 +199,6 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/text_view_best_speed_value"
                     tools:text="7/8/2025" />
-
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
