@@ -39,7 +39,7 @@ Built with **Kotlin**, **Fragments**, and **ViewBinding**.
 ---
 
 ## 📸 Screenshots  
-![running](screenshots/running_ss.png)
+![running](screenshots/running.png)
 ![cycling](screenshots/cycling.png)
 ![editrecord](screenshots/editrecord.png)
 
