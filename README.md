@@ -39,11 +39,22 @@ Built with **Kotlin**, **Fragments**, and **ViewBinding**.
 ---
 
 ## 📸 Screenshots  
-![running](screenshots/running.png)
-![cycling](screenshots/cycling.png)
-![editrecord](screenshots/editrecord.png)
+![]()
+![]()
+![]()
 
-
+<table>
+  <tr>
+    <th>running</th>
+    <th>cycling</th>
+    <th>editrecord</th>
+  </tr>
+  <tr>
+    <td><img src="screenshots/running.png" width="250"></td>
+    <td><img src="screenshots/cycling.png" width="250"></td>
+    <td><img src="screenshots/editrecord.png" width="250"></td>
+  </tr>
+</table>
 ---
 
 ## 🚀 Getting Started  
